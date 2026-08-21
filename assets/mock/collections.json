@@ -1,0 +1,28 @@
+[
+  {
+    "id": "gid://shopify/Collection/706301100401",
+    "handle": "mood-mats",
+    "title": "Mood Mats",
+    "description": "Display mats made to give bongs, rigs, and glass collections a dedicated surface — and a finished look.",
+    "image": {
+      "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/collections/IMG_7604.jpg?v=1784247224",
+      "altText": "The Hemptons Cannabis Co. mood mat with vintage harvest badge artwork",
+      "width": 1600,
+      "height": 1600
+    }
+  },
+  {
+    "id": "gid://shopify/Collection/706301133169",
+    "handle": "apparel",
+    "title": "Apparel",
+    "description": "Original Hemptons artwork, made to wear.",
+    "image": null
+  },
+  {
+    "id": "gid://shopify/Collection/706405138801",
+    "handle": "shop-all",
+    "title": "Shop All",
+    "description": "Every Hemptons Cannabis Co. piece in one place.",
+    "image": null
+  }
+]

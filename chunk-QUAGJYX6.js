@@ -1,0 +1,1 @@
+function u(n,e="en-US"){if(!n)return"";let r=Number(n.amount);return Number.isNaN(r)?"":new Intl.NumberFormat(e,{style:"currency",currency:n.currencyCode}).format(r)}function t(n,e){return!n||!e?!1:Number(n.amount)>Number(e.amount)}export{u as a,t as b};
