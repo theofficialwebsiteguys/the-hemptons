@@ -17,10 +17,10 @@ export interface StorefrontConfig {
 
 // Real Shopify store: h5niuh-zj.myshopify.com ("The Hemptons"), served
 // through the shared Shopify-API backend wrapper (../Shopify-API in this
-// same Repos folder) — see its config/stores.local.json for the "hemptons"
-// store entry. Run that service (`npm run dev`, defaults to port 3000)
-// alongside this app for real data.
+// same Repos folder), deployed on Heroku. For local backend dev instead,
+// swap apiBaseUrl to 'http://localhost:3000/api/v1' and run that service
+// with `npm run dev`.
 export const STOREFRONT_CONFIG: StorefrontConfig = {
   storeKey: 'hemptons',
-  apiBaseUrl: 'http://localhost:3000/api/v1'
+  apiBaseUrl: 'https://shopify-api-74fe224aea27.herokuapp.com/api/v1'
 };
