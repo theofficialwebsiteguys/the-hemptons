@@ -1,0 +1,31 @@
+<div class="container section">
+  @if (loading()) {
+    <app-product-grid-skeleton [count]="8" />
+  } @else if (error() || !data()) {
+    <app-error-state
+      title="Collection not found"
+      message="This collection may have been removed or is no longer available."
+      [retryable]="false"
+    />
+  } @else {
+    <app-breadcrumb [items]="[{ label: 'Collections', path: '/collections' }, { label: data()!.collection.title }]" />
+
+    <header class="collection-detail__header">
+      @if (data()!.collection.image) {
+        <div class="collection-detail__media">
+          <app-image [image]="data()!.collection.image" [altFallback]="data()!.collection.title" />
+        </div>
+      }
+      <h1>{{ editorialHeading() }}</h1>
+      @if (editorialSubheading()) {
+        <p class="text-muted">{{ editorialSubheading() }}</p>
+      }
+    </header>
+
+    @if (data()!.products.length === 0) {
+      <app-empty-state title="No products in this collection yet" message="Check back soon." />
+    } @else {
+      <app-product-grid [products]="data()!.products" />
+    }
+  }
+</div>

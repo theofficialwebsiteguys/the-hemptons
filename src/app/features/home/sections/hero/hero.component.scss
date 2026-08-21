@@ -1,0 +1,99 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  // dvh accounts for mobile browser chrome (address bar) showing/hiding;
+  // falls back to the plain vh above in browsers that don't support it.
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  ::ng-deep img {
+    object-position: center 60%;
+  }
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  // An even, moderate vignette rather than a hard box behind the text —
+  // darkest at the edges, still dark enough through the center (where the
+  // copy sits) to stay legible over busy photo content, without ever
+  // reading as an obvious rectangle.
+  background:
+    radial-gradient(ellipse at center, rgba(12, 15, 11, 0.45) 0%, rgba(12, 15, 11, 0.62) 60%, rgba(12, 15, 11, 0.78) 100%);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  // min() with a vw-based bound, not just max-width in rem — as a flex
+  // item here, percentage/rem-based width alone wasn't being constrained
+  // by the viewport reliably; 100vw always resolves against the true
+  // viewport regardless of flex containing-block quirks.
+  max-width: min(34rem, calc(100vw - #{v.$space-6}));
+  margin-inline: auto;
+  padding-block: v.$space-8 v.$space-7;
+  color: var(--hemp-cream, #{v.$hemp-cream});
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+}
+
+.hero__eyebrow {
+  color: var(--hemp-harvest, #{v.$hemp-harvest});
+}
+
+.hero__headline {
+  margin-top: v.$space-4;
+  font-size: v.$font-size-4xl;
+  font-weight: v.$font-weight-regular;
+  line-height: 1.15;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+
+  @include m.respond-to(md) {
+    font-size: v.$font-size-5xl;
+  }
+
+  @include m.respond-to(lg) {
+    font-size: v.$font-size-6xl;
+  }
+}
+
+.hero__subheadline {
+  margin-top: v.$space-4;
+  color: var(--hemp-cream, #{v.$hemp-cream});
+  font-family: var(--font-heading, #{v.$font-heading});
+  font-size: v.$font-size-lg;
+  line-height: 1.4;
+  font-style: italic;
+  font-weight: v.$font-weight-regular;
+  opacity: 0.92;
+
+  @include m.respond-to(lg) {
+    font-size: v.$font-size-xl;
+  }
+}
+
+.hero__body {
+  margin-top: v.$space-3;
+  max-width: 24rem;
+  margin-inline: auto;
+  font-size: v.$font-size-sm;
+  letter-spacing: 0.02em;
+  color: var(--color-muted-on-dark, #{v.$color-muted-on-dark});
+}
+
+.hero__actions {
+  margin-top: v.$space-7;
+}

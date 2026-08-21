@@ -1,0 +1,30 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.contact {
+  display: grid;
+  gap: v.$space-7;
+  grid-template-columns: 1fr;
+  max-width: 50rem;
+
+  @include m.respond-to(md) {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+.contact__intro p {
+  margin-top: v.$space-3;
+}
+
+.contact__details {
+  margin-top: v.$space-5;
+  line-height: v.$line-height-normal;
+}
+
+.contact__form {
+  width: 100%;
+}
+
+.contact__success h2 {
+  margin-bottom: v.$space-2;
+}

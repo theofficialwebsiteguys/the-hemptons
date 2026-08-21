@@ -1,0 +1,17 @@
+<div class="container section">
+  <header>
+    <h1>Collections</h1>
+  </header>
+
+  <div class="collections__body">
+    @if (loading()) {
+      <p class="text-muted">Loading collections…</p>
+    } @else if (error()) {
+      <app-error-state title="We couldn't load collections" (retry)="retry()" />
+    } @else if (collections().length === 0) {
+      <app-empty-state title="No collections yet" />
+    } @else {
+      <app-collection-grid [collections]="collections()" />
+    }
+  </div>
+</div>

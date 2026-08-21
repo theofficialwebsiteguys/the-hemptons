@@ -1,0 +1,78 @@
+@use 'variables' as v;
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+  color: var(--color-text, #{v.$color-text});
+}
+
+.product-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+  border-radius: v.$radius-sm;
+
+  ::ng-deep img {
+    transition: transform v.$transition-slow;
+  }
+}
+
+.product-card:hover .product-card__media ::ng-deep img {
+  transform: scale(1.035);
+}
+
+.product-card__badge {
+  position: absolute;
+  top: v.$space-3;
+  left: v.$space-3;
+  font-size: v.$font-size-xs;
+  font-weight: v.$font-weight-semibold;
+  letter-spacing: 0.04em;
+  padding: v.$space-1 v.$space-3;
+  border-radius: v.$radius-full;
+  background-color: var(--color-background, #{v.$color-background});
+}
+
+.product-card__badge--sale {
+  color: var(--color-accent-orange, #{v.$color-accent-orange});
+}
+
+.product-card__badge--limited {
+  color: var(--hemp-deep-green, #{v.$hemp-deep-green});
+  background-color: var(--color-accent, #{v.$color-accent});
+}
+
+.product-card__badge--sold-out {
+  color: var(--color-muted, #{v.$color-muted});
+}
+
+.product-card__title {
+  font-size: v.$font-size-base;
+  font-weight: v.$font-weight-medium;
+}
+
+.product-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: v.$space-2;
+  font-size: v.$font-size-sm;
+  color: var(--color-muted, #{v.$color-muted});
+}
+
+.product-card__price--sale {
+  color: var(--color-accent-orange, #{v.$color-accent-orange});
+  font-weight: v.$font-weight-medium;
+}
+
+.product-card__compare-at {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card__media ::ng-deep img {
+    transition: none;
+  }
+}

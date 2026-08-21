@@ -1,0 +1,33 @@
+@if (uiState.isMobileMenuOpen()) {
+  <div class="mobile-menu__backdrop" (click)="close()"></div>
+}
+
+<aside
+  class="mobile-menu"
+  [class.mobile-menu--open]="uiState.isMobileMenuOpen()"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-hidden]="!uiState.isMobileMenuOpen()"
+  aria-label="Menu"
+>
+  <header class="mobile-menu__header">
+    <span class="mobile-menu__title">{{ site.shortName }}</span>
+    <button type="button" class="mobile-menu__close" (click)="close()" aria-label="Close menu">
+      <app-icon name="close" />
+    </button>
+  </header>
+
+  <nav class="mobile-menu__nav" aria-label="Primary">
+    @for (link of categoryLinks; track link.route) {
+      <a [routerLink]="link.route" (click)="close()">{{ link.label }}</a>
+    }
+    <span class="mobile-menu__divider" aria-hidden="true"></span>
+    @for (link of site.navigation; track link.route) {
+      <a [routerLink]="link.route" (click)="close()">{{ link.label }}</a>
+    }
+  </nav>
+
+  <footer class="mobile-menu__footer">
+    <span class="text-muted">Est. {{ site.established }}</span>
+  </footer>
+</aside>

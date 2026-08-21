@@ -1,0 +1,105 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.gallery__main {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+
+  @include m.respond-to(md) {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.gallery__zoom-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.gallery__zoom-hint {
+  position: absolute;
+  bottom: v.$space-3;
+  right: v.$space-3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: v.$radius-full;
+  background-color: rgba(244, 238, 218, 0.85);
+  color: var(--hemp-charcoal, #{v.$hemp-charcoal});
+  opacity: 0;
+  transition: opacity v.$transition-fast;
+}
+
+.gallery__main:hover .gallery__zoom-hint {
+  opacity: 1;
+}
+
+.gallery__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: v.$radius-full;
+  background-color: rgba(244, 238, 218, 0.85);
+  color: var(--hemp-charcoal, #{v.$hemp-charcoal});
+  transition: background-color v.$transition-fast;
+
+  &:hover {
+    background-color: var(--hemp-cream, #{v.$hemp-cream});
+  }
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.gallery__nav--prev {
+  left: v.$space-3;
+}
+
+.gallery__nav--next {
+  right: v.$space-3;
+}
+
+.gallery__thumbs {
+  display: flex;
+  gap: v.$space-3;
+  margin-top: v.$space-3;
+  overflow-x: auto;
+}
+
+.gallery__thumb {
+  flex: 0 0 auto;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+  transition: border-color v.$transition-fast;
+
+  &:focus-visible {
+    @include m.focus-ring;
+  }
+}
+
+.gallery__thumb--active {
+  border-color: var(--color-primary, #{v.$color-primary});
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__zoom-hint {
+    transition: none;
+  }
+}

@@ -1,0 +1,12 @@
+@use 'variables' as v;
+
+.featured-products__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: v.$space-6;
+}
+
+.featured-products__header h2 {
+  margin-top: v.$space-2;
+}

@@ -1,0 +1,21 @@
+@if (visible()) {
+  <div class="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+    <div class="age-gate__panel">
+      <span class="age-gate__mark" aria-hidden="true"></span>
+      <p class="age-gate__eyebrow">{{ site.fullName }}</p>
+
+      @if (!declined()) {
+        <h1 id="age-gate-title">Are you {{ config.minimumAge }} or older?</h1>
+        <p class="text-muted">Please confirm your age to enter this site.</p>
+
+        <div class="age-gate__actions">
+          <app-button #confirmButton size="lg" [full]="true" (click)="confirm()">Yes, I'm {{ config.minimumAge }}+</app-button>
+          <app-button variant="secondary" size="lg" [full]="true" (click)="decline()">No</app-button>
+        </div>
+      } @else {
+        <h1 id="age-gate-title">Come back when you're older</h1>
+        <p class="text-muted">You must be {{ config.minimumAge }} or older to view this site.</p>
+      }
+    </div>
+  </div>
+}

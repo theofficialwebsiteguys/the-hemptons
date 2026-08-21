@@ -1,0 +1,28 @@
+<section class="mood-mat section">
+  <div class="container">
+    <div class="mood-mat__header">
+      <div>
+        <span class="eyebrow">{{ content.eyebrow }}</span>
+        <h2>{{ content.heading }}</h2>
+        <p class="text-muted">{{ content.body }}</p>
+      </div>
+
+      @if (route) {
+        <a [routerLink]="route"><app-button variant="secondary">{{ content.cta.label }}</app-button></a>
+      }
+    </div>
+
+    <div class="mood-mat__gallery">
+      <div class="mood-mat__primary">
+        <app-image [image]="primaryImage" [altFallback]="content.heading" />
+      </div>
+      <div class="mood-mat__secondary">
+        @for (image of secondaryImages; track image.url) {
+          <div class="mood-mat__secondary-item">
+            <app-image [image]="image" [altFallback]="content.heading" />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,114 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: v.$z-header;
+  background-color: var(--color-background, #{v.$color-background});
+  border-bottom: 1px solid var(--color-border, #{v.$color-border});
+  transition: background-color v.$transition-base, border-color v.$transition-base, color v.$transition-base;
+}
+
+.header--transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  border-bottom-color: transparent;
+  color: var(--color-text-on-dark, #{v.$color-text-on-dark});
+
+  .header__link--active {
+    border-color: var(--color-text-on-dark, #{v.$color-text-on-dark}) !important;
+  }
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.75rem;
+
+  @include m.respond-to(lg) {
+    height: 5.5rem;
+  }
+}
+
+.header__logo {
+  font-family: var(--font-heading, #{v.$font-heading});
+  font-size: v.$font-size-xl;
+  font-weight: v.$font-weight-semibold;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  @include m.respond-to(lg) {
+    font-size: v.$font-size-2xl;
+  }
+}
+
+.header__menu-toggle {
+  display: flex;
+  align-items: center;
+
+  @include m.respond-to(lg) {
+    display: none;
+  }
+}
+
+.header__nav {
+  display: none;
+  align-items: center;
+  gap: v.$space-6;
+
+  @include m.respond-to(lg) {
+    display: flex;
+  }
+}
+
+.header__nav a {
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-medium;
+  letter-spacing: 0.02em;
+  padding-block: v.$space-2;
+  border-bottom: 2px solid transparent;
+  transition: border-color v.$transition-fast, opacity v.$transition-fast;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.header__link--active {
+  border-color: var(--color-primary, #{v.$color-primary}) !important;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: v.$space-4;
+}
+
+.header__action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__cart-count {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.1rem;
+  height: 1.1rem;
+  padding-inline: 0.2rem;
+  border-radius: v.$radius-full;
+  background-color: var(--color-accent-orange, #{v.$color-accent-orange});
+  color: var(--hemp-cream, #{v.$hemp-cream});
+  font-size: 0.65rem;
+  font-weight: v.$font-weight-semibold;
+}

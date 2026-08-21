@@ -1,0 +1,34 @@
+<section class="category-grid section">
+  <div class="container">
+    <div class="category-grid__header">
+      <span class="eyebrow">{{ content.eyebrow }}</span>
+      <h2>{{ content.heading }}</h2>
+    </div>
+
+    <div class="category-grid__tiles">
+      @for (tile of tiles; track tile.key) {
+        @if (tile.route) {
+          <a class="category-tile category-tile--{{ tile.key }}" [routerLink]="tile.route">
+            <div class="category-tile__media" [class.category-tile__media--contain]="tile.fit === 'contain'">
+              <app-image [image]="tile.image" [altFallback]="tile.label" [fit]="tile.fit" />
+            </div>
+            <div class="category-tile__caption">
+              <h3>{{ tile.label }}</h3>
+              <p>{{ tile.copy }}</p>
+            </div>
+          </a>
+        } @else {
+          <div class="category-tile category-tile--{{ tile.key }} category-tile--soon">
+            <div class="category-tile__media" [class.category-tile__media--contain]="tile.fit === 'contain'">
+              <app-image [image]="tile.image" [altFallback]="tile.label" [fit]="tile.fit" />
+            </div>
+            <div class="category-tile__caption">
+              <h3>{{ tile.label }}</h3>
+              <p>Coming soon</p>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>

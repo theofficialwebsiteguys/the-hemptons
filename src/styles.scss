@@ -1,0 +1,56 @@
+@use 'styles/variables' as v;
+@use 'styles/reset';
+@use 'styles/typography';
+@use 'styles/buttons';
+@use 'styles/forms';
+@use 'styles/utilities';
+
+:root {
+  --color-background: #{v.$color-background};
+  --color-surface: #{v.$color-surface};
+  --color-surface-alt: #{v.$color-surface-alt};
+  --color-surface-dark: #{v.$color-surface-dark};
+  --color-text: #{v.$color-text};
+  --color-text-on-dark: #{v.$color-text-on-dark};
+  --color-muted: #{v.$color-muted};
+  --color-muted-on-dark: #{v.$color-muted-on-dark};
+  --color-primary: #{v.$color-primary};
+  --color-primary-contrast: #{v.$color-primary-contrast};
+  --color-accent: #{v.$color-accent};
+  --color-accent-orange: #{v.$color-accent-orange};
+  --color-border: #{v.$color-border};
+  --color-border-on-dark: #{v.$color-border-on-dark};
+  --color-success: #{v.$color-success};
+  --color-error: #{v.$color-error};
+  --color-warning: #{v.$color-warning};
+
+  --hemp-cream: #{v.$hemp-cream};
+  --hemp-paper: #{v.$hemp-paper};
+  --hemp-charcoal: #{v.$hemp-charcoal};
+  --hemp-green: #{v.$hemp-green};
+  --hemp-deep-green: #{v.$hemp-deep-green};
+  --hemp-harvest: #{v.$hemp-harvest};
+  --hemp-orange: #{v.$hemp-orange};
+  --hemp-brown: #{v.$hemp-brown};
+  --hemp-cork: #{v.$hemp-cork};
+
+  --font-heading: #{v.$font-heading};
+  --font-body: #{v.$font-body};
+
+  --container-width: #{v.$container-width};
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-background);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page__main {
+  flex: 1;
+}

@@ -1,0 +1,53 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.apparel-feature__inner {
+  display: grid;
+  gap: v.$space-7;
+  grid-template-columns: 1fr;
+  align-items: center;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: 1.1fr 1fr;
+    gap: v.$space-9;
+  }
+}
+
+.apparel-feature__content h2 {
+  margin-top: v.$space-3;
+  margin-bottom: v.$space-4;
+  text-transform: uppercase;
+}
+
+.apparel-feature__content p {
+  margin-bottom: v.$space-6;
+  max-width: 26rem;
+  font-size: v.$font-size-lg;
+}
+
+.apparel-feature__media {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: v.$space-4;
+  order: -1;
+
+  @include m.respond-to(lg) {
+    order: 0;
+  }
+}
+
+.apparel-feature__tee {
+  aspect-ratio: 4 / 5;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+}
+
+.apparel-feature__tee--white {
+  background-color: var(--hemp-cream, #{v.$hemp-cream});
+  border: 1px solid var(--color-border, #{v.$color-border});
+}
+
+.apparel-feature__tee--black {
+  background-color: var(--hemp-charcoal, #{v.$hemp-charcoal});
+  margin-top: v.$space-6;
+}

@@ -1,0 +1,57 @@
+<footer class="footer">
+  <div class="footer__top container">
+    <div class="footer__brand">
+      <span class="footer__mark" aria-hidden="true"></span>
+      <p class="footer__business-name">{{ site.fullName }}</p>
+      <p class="footer__tagline">Est. {{ site.established }}</p>
+
+      @if (site.social.instagram || site.social.facebook || site.social.tiktok) {
+        <div class="footer__social">
+          @if (site.social.instagram) {
+            <a [href]="site.social.instagram" target="_blank" rel="noopener" aria-label="Instagram">
+              <app-icon name="instagram" [size]="18" />
+            </a>
+          }
+          @if (site.social.facebook) {
+            <a [href]="site.social.facebook" target="_blank" rel="noopener" aria-label="Facebook">
+              <app-icon name="facebook" [size]="18" />
+            </a>
+          }
+          @if (site.social.tiktok) {
+            <a [href]="site.social.tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+              <app-icon name="tiktok" [size]="18" />
+            </a>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="footer__column">
+      <h4>Shop</h4>
+      @for (link of shopLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+    </div>
+
+    <div class="footer__column">
+      <h4>Info</h4>
+      @for (link of infoLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+    </div>
+
+    <div class="footer__column">
+      <h4>Legal</h4>
+      @for (link of legalLinks; track link.route) {
+        <a [routerLink]="link.route">{{ link.label }}</a>
+      }
+      @if (site.contact.email) {
+        <a [href]="'mailto:' + site.contact.email">{{ site.contact.email }}</a>
+      }
+    </div>
+  </div>
+
+  <div class="footer__bottom container">
+    <p>&copy; {{ year }} {{ site.fullName }}. All rights reserved.</p>
+  </div>
+</footer>

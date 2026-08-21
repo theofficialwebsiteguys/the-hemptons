@@ -1,0 +1,118 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: v.$z-lightbox;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--hemp-charcoal, #{v.$hemp-charcoal});
+  opacity: 0.94;
+  animation: lightbox-fade v.$transition-base;
+}
+
+.lightbox__body {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: v.$space-6 v.$space-4;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: v.$space-4;
+  right: v.$space-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: v.$radius-full;
+  color: var(--hemp-cream, #{v.$hemp-cream});
+  background-color: rgba(244, 238, 218, 0.1);
+  transition: background-color v.$transition-fast;
+
+  &:hover {
+    background-color: rgba(244, 238, 218, 0.18);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--hemp-harvest, #{v.$hemp-harvest});
+    outline-offset: 2px;
+  }
+}
+
+.lightbox__stage {
+  position: relative;
+  width: min(90vw, 62rem);
+  height: min(78vh, 62rem);
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: v.$radius-full;
+  color: var(--hemp-cream, #{v.$hemp-cream});
+  background-color: rgba(244, 238, 218, 0.1);
+  transition: background-color v.$transition-fast;
+
+  &:hover {
+    background-color: rgba(244, 238, 218, 0.18);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--hemp-harvest, #{v.$hemp-harvest});
+    outline-offset: 2px;
+  }
+}
+
+.lightbox__nav--prev {
+  left: -0.5rem;
+
+  @include m.respond-to(md) {
+    left: -3.5rem;
+  }
+}
+
+.lightbox__nav--next {
+  right: -0.5rem;
+
+  @include m.respond-to(md) {
+    right: -3.5rem;
+  }
+}
+
+.lightbox__count {
+  margin-top: v.$space-4;
+  font-size: v.$font-size-xs;
+  letter-spacing: 0.08em;
+  color: var(--color-muted-on-dark, #{v.$color-muted-on-dark});
+}
+
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.94;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox__backdrop {
+    animation: none;
+  }
+}

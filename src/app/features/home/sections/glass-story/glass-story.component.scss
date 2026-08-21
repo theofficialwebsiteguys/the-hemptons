@@ -1,0 +1,37 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.glass-story__inner {
+  display: grid;
+  gap: v.$space-6;
+  grid-template-columns: 1fr;
+  align-items: center;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: 1.2fr 1fr;
+    gap: v.$space-9;
+  }
+}
+
+.glass-story__media {
+  aspect-ratio: 4 / 5;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+
+  @include m.respond-to(lg) {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.glass-story__content h2 {
+  margin-top: v.$space-3;
+  margin-bottom: v.$space-4;
+  text-transform: uppercase;
+}
+
+.glass-story__content p {
+  margin-bottom: v.$space-6;
+  max-width: 26rem;
+  font-size: v.$font-size-lg;
+}

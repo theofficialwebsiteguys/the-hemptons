@@ -1,0 +1,16 @@
+<section class="hero">
+  <div class="hero__media">
+    <app-image [image]="image" [priority]="true" />
+    <div class="hero__scrim" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero__inner container">
+    <span class="eyebrow hero__eyebrow">{{ content.eyebrow }}</span>
+    <h1 class="hero__headline">{{ content.headline }}</h1>
+    <p class="hero__subheadline">{{ content.subheadline }}</p>
+    <p class="hero__body">{{ content.body }}</p>
+    <div class="hero__actions">
+      <a [routerLink]="content.primaryCta.route"><app-button>{{ content.primaryCta.label }}</app-button></a>
+    </div>
+  </div>
+</section>

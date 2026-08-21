@@ -1,0 +1,64 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.mood-mat__header {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-5;
+  margin-bottom: v.$space-7;
+
+  @include m.respond-to(md) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.mood-mat__header h2 {
+  margin-top: v.$space-2;
+  margin-bottom: v.$space-2;
+}
+
+.mood-mat__header p {
+  max-width: 28rem;
+}
+
+.mood-mat__gallery {
+  display: grid;
+  gap: v.$space-4;
+  grid-template-columns: 1fr;
+
+  @include m.respond-to(md) {
+    grid-template-columns: 1.4fr 1fr;
+    gap: v.$space-5;
+  }
+}
+
+.mood-mat__primary {
+  aspect-ratio: 1 / 1;
+  border-radius: v.$radius-full;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+
+  @include m.respond-to(md) {
+    aspect-ratio: 4 / 5;
+    border-radius: v.$radius-sm;
+  }
+}
+
+.mood-mat__secondary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: v.$space-4;
+
+  @include m.respond-to(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mood-mat__secondary-item {
+  aspect-ratio: 1 / 1;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+}

@@ -1,0 +1,67 @@
+@use 'variables' as v;
+
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: v.$z-lightbox;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: v.$space-5;
+  background-color: var(--hemp-charcoal, #{v.$hemp-charcoal});
+}
+
+.age-gate__panel {
+  width: 100%;
+  max-width: 24rem;
+  text-align: center;
+  color: var(--hemp-cream, #{v.$hemp-cream});
+}
+
+.age-gate__mark {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto v.$space-5;
+  border-radius: v.$radius-full;
+  border: 1.5px solid var(--hemp-harvest, #{v.$hemp-harvest});
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: v.$radius-full;
+    border: 1px solid var(--hemp-harvest, #{v.$hemp-harvest});
+    opacity: 0.6;
+  }
+}
+
+.age-gate__eyebrow {
+  font-size: v.$font-size-xs;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hemp-harvest, #{v.$hemp-harvest});
+  margin-bottom: v.$space-3;
+}
+
+.age-gate__panel h1 {
+  text-transform: uppercase;
+  margin-bottom: v.$space-3;
+}
+
+.age-gate__panel .text-muted {
+  color: var(--color-muted-on-dark, #{v.$color-muted-on-dark});
+  margin-bottom: v.$space-6;
+}
+
+.age-gate__actions {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-3;
+}
+
+.age-gate__actions app-button:last-child {
+  --color-text: var(--hemp-cream, #{v.$hemp-cream});
+  --color-background: transparent;
+}

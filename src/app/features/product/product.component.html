@@ -1,0 +1,68 @@
+<div class="container section">
+  @if (loading()) {
+    <app-product-page-skeleton />
+  } @else if (error() || !product()) {
+    <app-error-state
+      title="Product not found"
+      message="This product may have been removed or is no longer available."
+      [retryable]="false"
+    />
+  } @else {
+    <app-breadcrumb
+      [items]="[{ label: 'Shop', path: '/shop' }, { label: product()!.title }]"
+    />
+
+    <div class="product">
+      <div class="product__gallery">
+        <app-product-gallery [images]="product()!.images" [title]="product()!.title" />
+      </div>
+
+      <div class="product__info">
+        <h1>{{ product()!.title }}</h1>
+
+        <p class="product__price">
+          {{ formatMoney(selectedVariant()?.price ?? product()!.priceRange.minVariantPrice) }}
+          @if (selectedVariant()?.compareAtPrice) {
+            <span class="product__compare-at">{{ formatMoney(selectedVariant()!.compareAtPrice) }}</span>
+          }
+        </p>
+
+        @if (isLastOne()) {
+          <p class="product__scarcity">Only 1 available — one-of-one</p>
+        }
+
+        <app-product-options [product]="product()!" (variantChange)="onVariantChange($event)" />
+
+        <div class="product__availability">
+          @if (selectedVariant()?.availableForSale) {
+            <span class="product__in-stock">In stock</span>
+          } @else {
+            <span class="product__sold-out">Sold out</span>
+          }
+        </div>
+
+        <div class="product__add-to-cart">
+          <app-quantity-selector [quantity]="quantity()" (quantityChange)="onQuantityChange($event)" />
+          <app-button
+            [full]="true"
+            [disabled]="!selectedVariant() || !selectedVariant()!.availableForSale"
+            [loading]="adding()"
+            (click)="addToCart()"
+          >
+            {{ selectedVariant()?.availableForSale ? 'Add to cart' : 'Sold out' }}
+          </app-button>
+        </div>
+
+        @if (product()!.description) {
+          <div class="product__description">
+            @if (product()!.descriptionHtml) {
+              <div [innerHTML]="product()!.descriptionHtml ?? ''"></div>
+            } @else {
+              <p>{{ product()!.description }}</p>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>

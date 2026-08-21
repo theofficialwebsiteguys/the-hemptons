@@ -1,0 +1,28 @@
+<a
+  class="product-card"
+  [routerLink]="['/products', product().handle]"
+  (mouseenter)="hovered.set(true)"
+  (mouseleave)="hovered.set(false)"
+>
+  <div class="product-card__media">
+    <app-image [image]="displayImage()" [altFallback]="product().title" />
+
+    @if (!product().availableForSale) {
+      <span class="product-card__badge product-card__badge--sold-out">Sold out</span>
+    } @else if (isLastOne()) {
+      <span class="product-card__badge product-card__badge--limited">Only 1 left</span>
+    } @else if (isOnSale()) {
+      <span class="product-card__badge product-card__badge--sale">Sale</span>
+    }
+  </div>
+
+  <div class="product-card__body">
+    <h3 class="product-card__title">{{ product().title }}</h3>
+    <div class="product-card__price">
+      <span [class.product-card__price--sale]="isOnSale()">{{ priceLabel() }}</span>
+      @if (compareAtLabel()) {
+        <span class="product-card__compare-at">{{ compareAtLabel() }}</span>
+      }
+    </div>
+  </div>
+</a>

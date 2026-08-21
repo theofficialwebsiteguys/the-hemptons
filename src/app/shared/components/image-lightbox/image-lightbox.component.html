@@ -1,0 +1,34 @@
+@if (open()) {
+  <div
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="title() ? title() + ' — image viewer' : 'Image viewer'"
+    (keydown)="onKeydown($event)"
+  >
+    <div class="lightbox__backdrop" (click)="close.emit()"></div>
+
+    <div class="lightbox__body">
+      <button #closeButton type="button" class="lightbox__close" (click)="close.emit()" aria-label="Close image viewer">
+        <app-icon name="close" [size]="22" />
+      </button>
+
+      <div class="lightbox__stage">
+        <app-image [image]="images()[activeIndex()]" [altFallback]="title()" [fit]="'contain'" [priority]="true" />
+
+        @if (images().length > 1) {
+          <button type="button" class="lightbox__nav lightbox__nav--prev" (click)="previous()" aria-label="Previous image">
+            <app-icon name="chevron-left" [size]="28" />
+          </button>
+          <button type="button" class="lightbox__nav lightbox__nav--next" (click)="next()" aria-label="Next image">
+            <app-icon name="chevron-right" [size]="28" />
+          </button>
+        }
+      </div>
+
+      @if (images().length > 1) {
+        <p class="lightbox__count" aria-live="polite">{{ activeIndex() + 1 }} / {{ images().length }}</p>
+      }
+    </div>
+  </div>
+}

@@ -1,0 +1,19 @@
+@use 'variables' as v;
+
+.collection-detail__header {
+  margin-block: v.$space-5 v.$space-7;
+  max-width: 40rem;
+}
+
+.collection-detail__media {
+  aspect-ratio: 21 / 9;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  margin-bottom: v.$space-5;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+}
+
+.collection-detail__header h1 {
+  margin-bottom: v.$space-2;
+  text-transform: uppercase;
+}

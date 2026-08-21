@@ -1,0 +1,19 @@
+<section class="glass-story section">
+  <div class="glass-story__inner container">
+    <div class="glass-story__media">
+      <app-image [image]="image" [altFallback]="content.eyebrow" />
+    </div>
+    <div class="glass-story__content">
+      <span class="eyebrow">{{ content.eyebrow }}</span>
+
+      @if (route) {
+        <h2>{{ content.heading }}</h2>
+        <p class="text-muted">{{ content.body }}</p>
+        <a [routerLink]="route"><app-button variant="secondary">{{ content.cta.label }}</app-button></a>
+      } @else {
+        <h2>{{ content.emptyHeading }}</h2>
+        <p class="text-muted">{{ content.emptyBody }}</p>
+      }
+    </div>
+  </div>
+</section>

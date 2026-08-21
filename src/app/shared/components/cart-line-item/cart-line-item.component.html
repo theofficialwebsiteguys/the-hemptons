@@ -1,0 +1,23 @@
+<li class="cart-line">
+  <div class="cart-line__media">
+    <app-image [image]="line().merchandise.image" [altFallback]="line().merchandise.title" />
+  </div>
+
+  <div class="cart-line__details">
+    <p class="cart-line__title">{{ line().merchandise.product.title }}</p>
+    <p class="cart-line__variant text-muted">{{ variantLabel() }}</p>
+
+    <div class="cart-line__row">
+      <app-quantity-selector
+        [quantity]="line().quantity"
+        (quantityChange)="quantityChange.emit($event)"
+      />
+
+      <button type="button" class="cart-line__remove" (click)="remove.emit()" aria-label="Remove item">
+        <app-icon name="trash" [size]="16" />
+      </button>
+    </div>
+  </div>
+
+  <p class="cart-line__price">{{ formatMoney(line().cost.totalAmount) }}</p>
+</li>

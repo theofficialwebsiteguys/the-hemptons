@@ -1,0 +1,19 @@
+<section class="featured-products section">
+  <div class="container">
+    <div class="featured-products__header">
+      <div>
+        <span class="eyebrow">{{ content.eyebrow }}</span>
+        <h2>{{ content.heading }}</h2>
+      </div>
+      <a [routerLink]="content.viewAll.route"><app-button variant="ghost">{{ content.viewAll.label }}</app-button></a>
+    </div>
+
+    @if (loading()) {
+      <app-product-grid-skeleton [count]="4" />
+    } @else if (products().length === 0) {
+      <app-empty-state title="New arrivals coming soon" message="The shop is being stocked — check back shortly." />
+    } @else {
+      <app-product-grid [products]="products()" />
+    }
+  </div>
+</section>

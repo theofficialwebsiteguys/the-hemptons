@@ -1,0 +1,50 @@
+@if (cartState.isDrawerOpen()) {
+  <div class="cart-drawer__backdrop" (click)="close()"></div>
+}
+
+<aside
+  class="cart-drawer"
+  [class.cart-drawer--open]="cartState.isDrawerOpen()"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-hidden]="!cartState.isDrawerOpen()"
+  aria-label="Shopping cart"
+>
+  <header class="cart-drawer__header">
+    <h2>Your cart</h2>
+    <button type="button" class="cart-drawer__close" (click)="close()" aria-label="Close cart">
+      <app-icon name="close" />
+    </button>
+  </header>
+
+  @if (cartState.error()) {
+    <p class="cart-drawer__error">{{ cartState.error() }}</p>
+  }
+
+  @if (cartState.isEmpty()) {
+    <app-empty-state title="Your cart is empty" message="Add something you love to get started.">
+      <app-button variant="primary" (click)="close()">Continue shopping</app-button>
+    </app-empty-state>
+  } @else {
+    <ul class="cart-drawer__lines">
+      @for (line of cartState.cartLines(); track line.id) {
+        <app-cart-line-item
+          [line]="line"
+          (quantityChange)="onQuantityChange(line.id, $event)"
+          (remove)="onQuantityChange(line.id, 0)"
+        />
+      }
+    </ul>
+
+    <footer class="cart-drawer__footer">
+      <div class="cart-drawer__subtotal">
+        <span>Subtotal</span>
+        <span>{{ formatMoney(cartState.cartSubtotal()) }}</span>
+      </div>
+      <p class="cart-drawer__note text-muted">Shipping and taxes calculated at checkout.</p>
+      <app-button variant="primary" [full]="true" [loading]="cartState.loading()" (click)="goToCheckout()">
+        Checkout
+      </app-button>
+    </footer>
+  }
+</aside>

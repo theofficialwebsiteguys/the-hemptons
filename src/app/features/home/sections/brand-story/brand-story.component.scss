@@ -1,0 +1,42 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.brand-story {
+  background-color: var(--color-surface, #{v.$color-surface});
+}
+
+.brand-story__inner {
+  display: grid;
+  gap: v.$space-6;
+  grid-template-columns: 1fr;
+  align-items: center;
+
+  @include m.respond-to(lg) {
+    grid-template-columns: 1fr 1.2fr;
+    gap: v.$space-9;
+  }
+}
+
+.brand-story__media {
+  aspect-ratio: 1 / 1;
+  max-width: 24rem;
+  margin-inline: auto;
+  border-radius: v.$radius-full;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+
+  @include m.respond-to(lg) {
+    margin-inline: 0;
+  }
+}
+
+.brand-story__content h2 {
+  margin-top: v.$space-3;
+  margin-bottom: v.$space-4;
+}
+
+.brand-story__content p {
+  margin-bottom: v.$space-6;
+  max-width: 32rem;
+  font-size: v.$font-size-lg;
+}

@@ -1,0 +1,53 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-2;
+  margin-bottom: v.$space-5;
+}
+
+.field__label {
+  font-size: v.$font-size-sm;
+  font-weight: v.$font-weight-medium;
+  color: var(--color-text, #{v.$color-text});
+}
+
+.field__control {
+  font-size: v.$font-size-base;
+  padding: v.$space-3 v.$space-4;
+  border: 1px solid var(--color-border, #{v.$color-border});
+  border-radius: v.$radius-sm;
+  background-color: var(--color-background, #{v.$color-background});
+  color: var(--color-text, #{v.$color-text});
+  transition: border-color v.$transition-fast;
+
+  &:focus-visible {
+    @include m.focus-ring;
+    border-color: var(--color-accent, #{v.$color-accent});
+  }
+
+  &::placeholder {
+    color: var(--color-muted, #{v.$color-muted});
+  }
+}
+
+textarea.field__control {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.field--invalid .field__control {
+  border-color: var(--color-error, #{v.$color-error});
+}
+
+.field__error {
+  font-size: v.$font-size-xs;
+  color: var(--color-error, #{v.$color-error});
+}
+
+.field__hint {
+  font-size: v.$font-size-xs;
+  color: var(--color-muted, #{v.$color-muted});
+}

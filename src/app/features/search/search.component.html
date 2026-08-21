@@ -1,0 +1,27 @@
+<div class="container section">
+  <h1>Search</h1>
+
+  <div class="search__field">
+    <app-icon name="search" />
+    <input
+      class="field__control"
+      type="search"
+      [formControl]="searchControl"
+      placeholder="Search products"
+      aria-label="Search products"
+      autofocus
+    />
+  </div>
+
+  <div class="search__results">
+    @if (loading()) {
+      <app-product-grid-skeleton [count]="6" />
+    } @else if (error()) {
+      <app-error-state title="Search is unavailable" message="Please try again in a moment." [retryable]="false" />
+    } @else if (searched() && results().length === 0) {
+      <app-empty-state title="No results" message="Try a different search term." />
+    } @else if (results().length > 0) {
+      <app-product-grid [products]="results()" />
+    }
+  </div>
+</div>

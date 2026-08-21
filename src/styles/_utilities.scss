@@ -1,0 +1,131 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.container {
+  @include m.container;
+}
+
+.section {
+  @include m.section-spacing;
+}
+
+.section--dark {
+  background-color: var(--color-surface-dark, #{v.$color-surface-dark});
+  color: var(--color-text-on-dark, #{v.$color-text-on-dark});
+
+  .text-muted {
+    color: var(--color-muted-on-dark, #{v.$color-muted-on-dark});
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-text-on-dark, #{v.$color-text-on-dark});
+  }
+}
+
+.visually-hidden {
+  @include m.visually-hidden;
+}
+
+.sr-only-focusable:not(:focus) {
+  @include m.visually-hidden;
+}
+
+.hairline {
+  @include m.hairline-rule;
+}
+
+.grain {
+  @include m.paper-grain;
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+  border-radius: v.$radius-sm;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: skeleton-shimmer 1.6s ease-in-out infinite;
+  }
+}
+
+@include m.reduced-motion {
+  .skeleton::after {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.grid {
+  display: grid;
+  gap: v.$space-5 v.$space-4;
+  grid-template-columns: repeat(2, 1fr);
+
+  @include m.respond-to(lg) {
+    gap: v.$space-7 v.$space-6;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/// Shared reading-column layout for simple content pages (FAQ, shipping,
+/// returns, privacy, terms) so each one isn't rebuilding the same prose
+/// spacing rules.
+.prose-page {
+  max-width: 42rem;
+}
+
+.prose-page__eyebrow {
+  display: block;
+  margin-bottom: v.$space-2;
+}
+
+.prose-page h1 {
+  text-transform: uppercase;
+  margin-bottom: v.$space-5;
+}
+
+.prose-page h2 {
+  margin-top: v.$space-7;
+  margin-bottom: v.$space-3;
+}
+
+.prose-page p {
+  margin-block: v.$space-3;
+}
+
+.prose-page .prose-page__todo {
+  display: inline-block;
+  margin-top: v.$space-2;
+  padding: v.$space-1 v.$space-2;
+  font-size: v.$font-size-xs;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent-orange, #{v.$color-accent-orange});
+  border: 1px dashed var(--color-accent-orange, #{v.$color-accent-orange});
+  border-radius: v.$radius-sm;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.cluster {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}

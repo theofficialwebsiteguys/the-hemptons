@@ -1,0 +1,119 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.category-grid__header {
+  max-width: 32rem;
+  margin-bottom: v.$space-7;
+}
+
+.category-grid__header h2 {
+  margin-top: v.$space-2;
+}
+
+.category-grid__tiles {
+  display: grid;
+  gap: v.$space-4;
+  grid-template-columns: 1fr;
+
+  @include m.respond-to(md) {
+    grid-template-columns: 1.3fr 1fr;
+    grid-template-rows: repeat(2, minmax(14rem, 1fr));
+    gap: v.$space-5;
+    grid-template-areas:
+      'glass apparel'
+      'glass moodMats';
+  }
+}
+
+.category-tile {
+  position: relative;
+  display: block;
+  min-height: 20rem;
+  border-radius: v.$radius-sm;
+  overflow: hidden;
+  background-color: var(--color-surface-alt, #{v.$color-surface-alt});
+}
+
+.category-tile--glass {
+  @include m.respond-to(md) {
+    grid-area: glass;
+  }
+}
+
+.category-tile--apparel {
+  min-height: 14rem;
+
+  @include m.respond-to(md) {
+    grid-area: apparel;
+  }
+}
+
+.category-tile--moodMats {
+  min-height: 14rem;
+
+  @include m.respond-to(md) {
+    grid-area: moodMats;
+  }
+}
+
+.category-tile__media {
+  position: absolute;
+  inset: 0;
+
+  ::ng-deep img {
+    transition: transform v.$transition-slow;
+  }
+}
+
+// Product-on-white flat-lays (apparel) get a warm backing instead of a
+// full-bleed photo crop, so the garment is never cut off.
+.category-tile__media--contain {
+  background-color: var(--hemp-paper, #{v.$hemp-paper});
+  padding: v.$space-6;
+}
+
+.category-tile:hover .category-tile__media ::ng-deep img {
+  transform: scale(1.04);
+}
+
+.category-tile__caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: v.$space-5;
+  background: linear-gradient(180deg, rgba(28, 33, 27, 0) 50%, rgba(28, 33, 27, 0.62) 100%);
+  color: var(--hemp-cream, #{v.$hemp-cream});
+}
+
+.category-tile__caption h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.category-tile__caption p {
+  margin-top: v.$space-1;
+  font-size: v.$font-size-sm;
+  color: var(--color-muted-on-dark, #{v.$color-muted-on-dark});
+}
+
+.category-tile--soon {
+  cursor: default;
+
+  .category-tile__media {
+    opacity: 0.55;
+  }
+
+  .category-tile__caption p {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: v.$font-size-xs;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-tile__media ::ng-deep img {
+    transition: none;
+  }
+}

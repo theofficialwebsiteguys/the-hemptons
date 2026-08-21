@@ -1,0 +1,18 @@
+@for (option of product().options; track option.name) {
+  <div class="option-group">
+    <span class="option-group__label">{{ option.name }}</span>
+    <div class="option-group__values">
+      @for (value of option.values; track value) {
+        <button
+          type="button"
+          class="option-value"
+          [class.option-value--selected]="isSelected(option.name, value)"
+          [class.option-value--unavailable]="!isAvailable(option.name, value)"
+          (click)="select(option.name, value)"
+        >
+          {{ value }}
+        </button>
+      }
+    </div>
+  </div>
+}

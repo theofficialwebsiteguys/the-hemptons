@@ -1,0 +1,55 @@
+<div class="container section contact">
+  <div class="contact__intro">
+    <h1>Contact us</h1>
+    <p class="text-muted">Questions about an order or a product? Send us a message.</p>
+    <p class="contact__details">
+      <a [href]="'mailto:' + site.contact.email">{{ site.contact.email }}</a>
+      @if (site.contact.phone) {
+        <br />
+        <a [href]="'tel:' + site.contact.phone">{{ site.contact.phone }}</a>
+      }
+    </p>
+  </div>
+
+  @if (submitted()) {
+    <div class="contact__success">
+      <h2>Message sent</h2>
+      <p class="text-muted">Thanks for reaching out — we'll get back to you soon.</p>
+    </div>
+  } @else {
+    <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field" [class.field--invalid]="form.controls.name.invalid && form.controls.name.touched">
+        <label class="field__label" for="name">Name</label>
+        <input class="field__control" id="name" type="text" formControlName="name" />
+        @if (form.controls.name.invalid && form.controls.name.touched) {
+          <span class="field__error">Please enter your name.</span>
+        }
+      </div>
+
+      <div class="field" [class.field--invalid]="form.controls.email.invalid && form.controls.email.touched">
+        <label class="field__label" for="email">Email</label>
+        <input class="field__control" id="email" type="email" formControlName="email" />
+        @if (form.controls.email.invalid && form.controls.email.touched) {
+          <span class="field__error">Please enter a valid email address.</span>
+        }
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="phone">Phone (optional)</label>
+        <input class="field__control" id="phone" type="tel" formControlName="phone" />
+      </div>
+
+      <div class="field" [class.field--invalid]="form.controls.message.invalid && form.controls.message.touched">
+        <label class="field__label" for="message">Message</label>
+        <textarea class="field__control" id="message" formControlName="message" rows="5"></textarea>
+        @if (form.controls.message.invalid && form.controls.message.touched) {
+          <span class="field__error">Message should be at least 10 characters.</span>
+        }
+      </div>
+
+      <app-button type="submit" [full]="true" [loading]="submitting()" [disabled]="form.invalid">
+        Send message
+      </app-button>
+    </form>
+  }
+</div>

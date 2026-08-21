@@ -1,0 +1,13 @@
+<section class="brand-story section">
+  <div class="brand-story__inner container">
+    <div class="brand-story__media">
+      <app-image [image]="image" [altFallback]="site.fullName" />
+    </div>
+    <div class="brand-story__content">
+      <span class="eyebrow">{{ content.eyebrow }}</span>
+      <h2>{{ content.heading }}</h2>
+      <p class="text-muted">{{ content.body }}</p>
+      <a routerLink="/about"><app-button variant="secondary">{{ content.cta.label }}</app-button></a>
+    </div>
+  </div>
+</section>

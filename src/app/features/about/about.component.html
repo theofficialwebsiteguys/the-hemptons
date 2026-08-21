@@ -1,0 +1,23 @@
+<article class="about">
+  <header class="about__hero">
+    <div class="about__hero-media">
+      <app-image [image]="heroImage" [altFallback]="site.fullName" [priority]="true" />
+    </div>
+    <div class="about__hero-content container">
+      <span class="eyebrow">{{ content.eyebrow }}</span>
+      <h1>{{ content.heading }}</h1>
+      <p class="about__lede">{{ content.lede }}</p>
+    </div>
+  </header>
+
+  <div class="about__body container section">
+    <div class="about__body-media">
+      <app-image [image]="secondaryImage" [altFallback]="site.fullName" />
+    </div>
+    <div class="about__body-copy">
+      @for (paragraph of content.body; track paragraph) {
+        <p class="text-muted">{{ paragraph }}</p>
+      }
+    </div>
+  </div>
+</article>

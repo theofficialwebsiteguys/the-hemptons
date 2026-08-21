@@ -1,0 +1,20 @@
+<section class="apparel-feature section">
+  <div class="apparel-feature__inner container">
+    <div class="apparel-feature__media">
+      <div class="apparel-feature__tee apparel-feature__tee--white">
+        <app-image [image]="teeWhite" [fit]="'cover'" altFallback="The Hemptons T-Shirt in white" />
+      </div>
+      <div class="apparel-feature__tee apparel-feature__tee--black">
+        <app-image [image]="teeBlack" [fit]="'cover'" altFallback="The Hemptons T-Shirt in black" />
+      </div>
+    </div>
+    <div class="apparel-feature__content">
+      <span class="eyebrow">{{ content.eyebrow }}</span>
+      <h2>{{ content.heading }}</h2>
+      <p class="text-muted">{{ content.body }}</p>
+      @if (route) {
+        <a [routerLink]="route"><app-button variant="secondary">{{ content.cta.label }}</app-button></a>
+      }
+    </div>
+  </div>
+</section>

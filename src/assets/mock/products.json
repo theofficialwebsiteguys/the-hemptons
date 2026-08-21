@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": "gid://shopify/Product/15909759746417",
+      "handle": "the-hemptons-mood-mat",
+      "title": "The Hemptons Mood Mat",
+      "description": "Your glass deserves better than a bare table. The Hemptons Mood Mat gives bongs, rigs, and favorite pieces a dedicated place to sit — and makes the surface underneath part of the display.",
+      "descriptionHtml": "<p>Your glass deserves better than a bare table. The Hemptons Mood Mat gives bongs, rigs, and favorite pieces a dedicated place to sit — and makes the surface underneath part of the display.</p><p>Each mat carries the original Hemptons harvest badge: a cannabis plant standing over golden fields, ringed in rope with wheat, autumn leaves, and pumpkins in warm cream, forest green, and harvest gold. It holds its own as a display piece even when nothing's sitting on it.</p><ul><li>Defines a clean, intentional display area for your collection</li><li>Creates a finished look beneath glass pieces and accessories</li><li>Adds character to a session spot, shelf, or display case</li><li>Original vintage-style Hemptons Cannabis Co. artwork</li></ul>",
+      "availableForSale": false,
+      "tags": [],
+      "productType": "Mood Mat",
+      "vendor": "The Hemptons",
+      "images": [
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7604.jpg?v=1784245105", "altText": "The Hemptons Cannabis Co. mood mat with vintage harvest badge artwork", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7586.jpg?v=1784245104", "altText": "Close-up of the Hemptons mood mat artwork — cannabis, wheat, pumpkins, and autumn leaves", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7592.jpg?v=1784245105", "altText": "A glass bong displayed on a Hemptons mood mat", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7603.jpg?v=1784245105", "altText": "Angled detail of stacked Hemptons mood mats", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7581_5ae50374-29c7-43ad-b581-28122c2a5f1c.jpg?v=1784245105", "altText": "Four Hemptons mood mats arranged on stone pavers", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7598.jpg?v=1784245105", "altText": "Hemptons mood mats displayed on a backyard deck", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7599.jpg?v=1784245105", "altText": "Hemptons mood mats styled on outdoor chairs and a table", "width": 1600, "height": 1600 },
+        { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7597.jpg?v=1784245105", "altText": "Hemptons mood mats catching afternoon sunlight outdoors", "width": 1600, "height": 1600 }
+      ],
+      "variants": [
+        {
+          "id": "gid://shopify/ProductVariant/64201026240881",
+          "title": "Default Title",
+          "availableForSale": false,
+          "quantityAvailable": 0,
+          "sku": null,
+          "price": { "amount": "25.99", "currencyCode": "USD" },
+          "compareAtPrice": null,
+          "selectedOptions": [{ "name": "Title", "value": "Default Title" }],
+          "image": { "url": "https://cdn.shopify.com/s/files/1/1026/4818/5201/files/IMG_7604.jpg?v=1784245105", "altText": "The Hemptons Cannabis Co. mood mat with vintage harvest badge artwork", "width": 1600, "height": 1600 }
+        }
+      ],
+      "options": [{ "name": "Title", "values": ["Default Title"] }],
+      "priceRange": { "minVariantPrice": { "amount": "25.99", "currencyCode": "USD" }, "maxVariantPrice": { "amount": "25.99", "currencyCode": "USD" } },
+      "compareAtPriceRange": null,
+      "metafields": [],
+      "collections": ["mood-mats", "shop-all"]
+    },
+    {
+      "id": "gid://shopify/Product/15909760434545",
+      "handle": "the-hemptons-t-shirt",
+      "title": "The Hemptons T-Shirt",
+      "description": "The official Hemptons Cannabis Co. tee. Original branding, everyday wear — the easiest way to rep the harvest year-round.",
+      "descriptionHtml": "<p>The official Hemptons Cannabis Co. tee. Original branding, everyday wear — the easiest way to rep the harvest year-round.</p>",
+      "availableForSale": false,
+      "tags": [],
+      "productType": "Apparel",
+      "vendor": "The Hemptons",
+      "images": [],
+      "variants": [
+        { "id": "gid://shopify/ProductVariant/64201026929009", "title": "S", "availableForSale": false, "quantityAvailable": 0, "sku": null, "price": { "amount": "20.99", "currencyCode": "USD" }, "compareAtPrice": null, "selectedOptions": [{ "name": "Size", "value": "S" }], "image": null },
+        { "id": "gid://shopify/ProductVariant/64215569006961", "title": "M", "availableForSale": false, "quantityAvailable": 0, "sku": null, "price": { "amount": "20.99", "currencyCode": "USD" }, "compareAtPrice": null, "selectedOptions": [{ "name": "Size", "value": "M" }], "image": null },
+        { "id": "gid://shopify/ProductVariant/64215569039729", "title": "L", "availableForSale": false, "quantityAvailable": 0, "sku": null, "price": { "amount": "20.99", "currencyCode": "USD" }, "compareAtPrice": null, "selectedOptions": [{ "name": "Size", "value": "L" }], "image": null },
+        { "id": "gid://shopify/ProductVariant/64215569072497", "title": "XL", "availableForSale": false, "quantityAvailable": 0, "sku": null, "price": { "amount": "20.99", "currencyCode": "USD" }, "compareAtPrice": null, "selectedOptions": [{ "name": "Size", "value": "XL" }], "image": null },
+        { "id": "gid://shopify/ProductVariant/64215569105265", "title": "2XL", "availableForSale": false, "quantityAvailable": 0, "sku": null, "price": { "amount": "20.99", "currencyCode": "USD" }, "compareAtPrice": null, "selectedOptions": [{ "name": "Size", "value": "2XL" }], "image": null }
+      ],
+      "options": [{ "name": "Size", "values": ["S", "M", "L", "XL", "2XL"] }],
+      "priceRange": { "minVariantPrice": { "amount": "20.99", "currencyCode": "USD" }, "maxVariantPrice": { "amount": "20.99", "currencyCode": "USD" } },
+      "compareAtPriceRange": null,
+      "metafields": [],
+      "collections": ["apparel", "shop-all"]
+    }
+  ],
+  "pageInfo": { "hasNextPage": false, "hasPreviousPage": false }
+}

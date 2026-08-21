@@ -1,0 +1,52 @@
+<div class="shop container section">
+  <header class="shop__header">
+    <h1>Shop</h1>
+  </header>
+
+  <form class="shop__filters" [formGroup]="filtersForm">
+    <input
+      class="field__control shop__search"
+      type="search"
+      formControlName="search"
+      placeholder="Search products"
+      aria-label="Search products"
+    />
+
+    <select class="field__control" formControlName="collection" aria-label="Filter by collection">
+      <option value="">All collections</option>
+      @for (collection of collections(); track collection.id) {
+        <option [value]="collection.handle">{{ collection.title }}</option>
+      }
+    </select>
+
+    <label class="shop__checkbox">
+      <input type="checkbox" formControlName="availableOnly" />
+      In stock only
+    </label>
+
+    <select
+      class="field__control shop__sort"
+      aria-label="Sort products"
+      [value]="sort()"
+      (change)="setSort($any($event.target).value)"
+    >
+      @for (option of sortOptions; track option.value) {
+        <option [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  </form>
+
+  @if (loading()) {
+    <app-product-grid-skeleton [count]="8" />
+  } @else if (error()) {
+    <app-error-state
+      title="We couldn't load products"
+      message="Check that the commerce API is running and reachable."
+      (retry)="retry()"
+    />
+  } @else if (products().length === 0) {
+    <app-empty-state title="No products found" message="Try adjusting your search or filters." />
+  } @else {
+    <app-product-grid [products]="products()" />
+  }
+</div>

@@ -1,0 +1,89 @@
+@use 'variables' as v;
+
+.cart-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(28, 33, 27, 0.5);
+  z-index: v.$z-overlay;
+  animation: fade-in v.$transition-base;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(100%, 27rem);
+  background-color: var(--color-background, #{v.$color-background});
+  z-index: v.$z-drawer;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform v.$transition-slow;
+  box-shadow: v.$shadow-lg;
+}
+
+.cart-drawer--open {
+  transform: translateX(0);
+}
+
+.cart-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: v.$space-5;
+  border-bottom: 1px solid var(--color-border, #{v.$color-border});
+
+  h2 {
+    font-size: v.$font-size-lg;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+}
+
+.cart-drawer__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-drawer__error {
+  margin: v.$space-4 v.$space-5 0;
+  color: var(--color-error, #{v.$color-error});
+  font-size: v.$font-size-sm;
+}
+
+.cart-drawer__lines {
+  flex: 1;
+  overflow-y: auto;
+  padding-inline: v.$space-5;
+}
+
+.cart-drawer__footer {
+  border-top: 1px solid var(--color-border, #{v.$color-border});
+  padding: v.$space-5;
+  background-color: var(--color-surface, #{v.$color-surface});
+}
+
+.cart-drawer__subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-heading, #{v.$font-heading});
+  font-size: v.$font-size-lg;
+  font-weight: v.$font-weight-semibold;
+  margin-bottom: v.$space-2;
+}
+
+.cart-drawer__note {
+  font-size: v.$font-size-xs;
+  margin-bottom: v.$space-4;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
