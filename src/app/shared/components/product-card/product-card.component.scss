@@ -48,6 +48,11 @@
   color: var(--color-muted, #{v.$color-muted});
 }
 
+.product-card__badge--coming-soon {
+  color: var(--hemp-cream, #{v.$hemp-cream});
+  background-color: var(--hemp-deep-green, #{v.$hemp-deep-green});
+}
+
 .product-card__title {
   font-size: v.$font-size-base;
   font-weight: v.$font-weight-medium;

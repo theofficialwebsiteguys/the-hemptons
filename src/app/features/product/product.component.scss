@@ -79,6 +79,12 @@
   color: var(--color-muted, #{v.$color-muted});
 }
 
+.product__coming-soon {
+  font-weight: v.$font-weight-semibold;
+  letter-spacing: 0.02em;
+  color: var(--hemp-deep-green, #{v.$hemp-deep-green});
+}
+
 .product__add-to-cart {
   display: flex;
   align-items: center;

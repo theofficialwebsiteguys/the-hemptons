@@ -74,3 +74,14 @@ export interface ProductListResult {
 }
 
 export type SortOption = 'featured' | 'price-asc' | 'price-desc' | 'newest' | 'alphabetical';
+
+/**
+ * A product is "coming soon" when it carries a `coming-soon` tag in
+ * Shopify — set this on any product from the admin (no code change
+ * needed) to swap its sold-out messaging for "Coming soon" wherever it's
+ * shown. Deliberately tag-driven rather than hardcoded to specific product
+ * handles, so it stays useful for future products too.
+ */
+export function isComingSoon(product: Product): boolean {
+  return product.tags.some((tag) => tag.trim().toLowerCase() === 'coming-soon');
+}

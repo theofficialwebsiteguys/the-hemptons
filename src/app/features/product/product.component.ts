@@ -7,7 +7,7 @@ import { ProductService } from '../../core/services/product.service';
 import { CartStateService } from '../../core/state/cart-state.service';
 import { SeoService } from '../../core/seo/seo.service';
 import { StructuredDataService } from '../../core/seo/structured-data.service';
-import { Product, ProductVariant } from '../../core/models/product.model';
+import { Product, ProductVariant, isComingSoon } from '../../core/models/product.model';
 import { formatMoney } from '../../core/models/money.model';
 
 import { ProductGalleryComponent } from '../../shared/components/product-gallery/product-gallery.component';
@@ -56,6 +56,11 @@ export class ProductComponent {
     const p = this.product();
     if (!p || !p.availableForSale || !p.variants.length) return false;
     return p.variants.every((v) => v.quantityAvailable !== null && v.quantityAvailable <= 1);
+  });
+
+  protected readonly isComingSoon = computed(() => {
+    const p = this.product();
+    return p ? isComingSoon(p) : false;
   });
 
   constructor() {

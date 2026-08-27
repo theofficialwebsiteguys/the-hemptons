@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Product } from '../../../core/models/product.model';
+import { Product, isComingSoon } from '../../../core/models/product.model';
 import { formatMoney, isMoneyGreaterThan } from '../../../core/models/money.model';
 import { ImageComponent } from '../image/image.component';
 
@@ -31,6 +31,8 @@ export class ProductCardComponent {
   });
 
   readonly isOnSale = computed(() => this.compareAtLabel() !== null);
+
+  readonly isComingSoon = computed(() => isComingSoon(this.product()));
 
   /** True only when every variant is capped at exactly one unit — a real, data-driven signal, never a fabricated one. */
   readonly isLastOne = computed(() => {

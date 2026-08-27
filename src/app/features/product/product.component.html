@@ -34,7 +34,9 @@
         <app-product-options [product]="product()!" (variantChange)="onVariantChange($event)" />
 
         <div class="product__availability">
-          @if (selectedVariant()?.availableForSale) {
+          @if (isComingSoon()) {
+            <span class="product__coming-soon">Coming soon</span>
+          } @else if (selectedVariant()?.availableForSale) {
             <span class="product__in-stock">In stock</span>
           } @else {
             <span class="product__sold-out">Sold out</span>
@@ -49,7 +51,7 @@
             [loading]="adding()"
             (click)="addToCart()"
           >
-            {{ selectedVariant()?.availableForSale ? 'Add to cart' : 'Sold out' }}
+            {{ isComingSoon() ? 'Coming soon' : selectedVariant()?.availableForSale ? 'Add to cart' : 'Sold out' }}
           </app-button>
         </div>
 

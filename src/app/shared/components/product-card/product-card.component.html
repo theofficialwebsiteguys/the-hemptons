@@ -7,7 +7,9 @@
   <div class="product-card__media">
     <app-image [image]="displayImage()" [altFallback]="product().title" />
 
-    @if (!product().availableForSale) {
+    @if (isComingSoon()) {
+      <span class="product-card__badge product-card__badge--coming-soon">Coming soon</span>
+    } @else if (!product().availableForSale) {
       <span class="product-card__badge product-card__badge--sold-out">Sold out</span>
     } @else if (isLastOne()) {
       <span class="product-card__badge product-card__badge--limited">Only 1 left</span>
