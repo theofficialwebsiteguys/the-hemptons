@@ -57,6 +57,20 @@
     }
   }
 
+  // Reserved for real conversion moments (add to cart, checkout, hero CTA)
+  // rather than general browsing actions — keeps orange meaningful instead
+  // of diluted across every button on the site.
+  &--accent {
+    background-color: var(--hemp-orange, #{v.$hemp-orange});
+    color: var(--hemp-cream, #{v.$hemp-cream});
+    border-color: var(--hemp-orange, #{v.$hemp-orange});
+
+    &:hover:not(:disabled) {
+      background-color: var(--hemp-orange-dark, #{v.$hemp-orange-dark});
+      border-color: var(--hemp-orange-dark, #{v.$hemp-orange-dark});
+    }
+  }
+
   &--secondary {
     background-color: transparent;
     border-color: var(--color-text, #{v.$color-text});

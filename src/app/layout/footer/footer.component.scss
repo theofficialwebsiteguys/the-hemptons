@@ -62,11 +62,10 @@
   a {
     display: flex;
     color: var(--color-text-on-dark, #{v.$color-text-on-dark});
-    opacity: 0.75;
-    transition: opacity v.$transition-fast;
+    transition: color v.$transition-fast;
 
     &:hover {
-      opacity: 1;
+      color: var(--hemp-orange, #{v.$hemp-orange});
     }
   }
 }
@@ -93,7 +92,7 @@
     width: fit-content;
 
     &:hover {
-      color: var(--color-text-on-dark, #{v.$color-text-on-dark});
+      color: var(--hemp-orange, #{v.$hemp-orange});
     }
   }
 }

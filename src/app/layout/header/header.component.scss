@@ -72,10 +72,10 @@
   letter-spacing: 0.02em;
   padding-block: v.$space-2;
   border-bottom: 2px solid transparent;
-  transition: border-color v.$transition-fast, opacity v.$transition-fast;
+  transition: border-color v.$transition-fast, color v.$transition-fast;
 
   &:hover {
-    opacity: 0.7;
+    color: var(--hemp-orange, #{v.$hemp-orange});
   }
 }
 

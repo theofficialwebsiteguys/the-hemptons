@@ -92,6 +92,20 @@
   letter-spacing: 0.02em;
 }
 
+.category-tile__caption h3::after {
+  content: '';
+  display: block;
+  margin-top: v.$space-2;
+  width: 1.75rem;
+  height: 2px;
+  background-color: var(--hemp-orange, #{v.$hemp-orange});
+  transition: width v.$transition-base;
+}
+
+.category-tile:hover .category-tile__caption h3::after {
+  width: 3.5rem;
+}
+
 .category-tile__caption p {
   margin-top: v.$space-1;
   font-size: v.$font-size-sm;

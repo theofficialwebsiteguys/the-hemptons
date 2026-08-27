@@ -42,7 +42,7 @@
         <span>{{ formatMoney(cartState.cartSubtotal()) }}</span>
       </div>
       <p class="cart-drawer__note text-muted">Shipping and taxes calculated at checkout.</p>
-      <app-button variant="primary" [full]="true" [loading]="cartState.loading()" (click)="goToCheckout()">
+      <app-button variant="accent" [full]="true" [loading]="cartState.loading()" (click)="goToCheckout()">
         Checkout
       </app-button>
     </footer>

@@ -45,11 +45,12 @@ import { IconComponent } from '../icon/icon.component';
         width: 2.25rem;
         height: 2.25rem;
         color: var(--color-text, #171717);
-        transition: background-color 150ms ease;
+        transition: background-color 150ms ease, color 150ms ease;
       }
 
       .qty__btn:hover:not(:disabled) {
         background-color: var(--color-surface-alt, #efece7);
+        color: var(--hemp-orange, #b5622a);
       }
 
       .qty__btn:disabled {

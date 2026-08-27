@@ -59,6 +59,12 @@
   font-family: var(--font-heading, #{v.$font-heading});
   font-size: v.$font-size-xl;
   border-bottom: 1px solid var(--color-border, #{v.$color-border});
+  transition: color v.$transition-fast;
+
+  &:hover,
+  &:active {
+    color: var(--hemp-orange, #{v.$hemp-orange});
+  }
 }
 
 .mobile-menu__divider {

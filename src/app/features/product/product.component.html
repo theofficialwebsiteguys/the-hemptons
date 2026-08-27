@@ -46,6 +46,7 @@
         <div class="product__add-to-cart">
           <app-quantity-selector [quantity]="quantity()" (quantityChange)="onQuantityChange($event)" />
           <app-button
+            variant="accent"
             [full]="true"
             [disabled]="!selectedVariant() || !selectedVariant()!.availableForSale"
             [loading]="adding()"

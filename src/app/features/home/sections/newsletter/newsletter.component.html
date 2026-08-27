@@ -14,7 +14,7 @@
           placeholder="you@example.com"
           aria-label="Email address"
         />
-        <app-button type="submit">Sign up</app-button>
+        <app-button type="submit" variant="accent">Sign up</app-button>
       </form>
       @if (form.controls.email.invalid && form.controls.email.touched) {
         <p class="field__error">Enter a valid email address.</p>
