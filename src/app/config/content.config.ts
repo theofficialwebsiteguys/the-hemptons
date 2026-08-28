@@ -76,7 +76,7 @@ export const ABOUT_CONTENT = {
   heading: 'The Hemptons',
   lede: 'A lifestyle cannabis brand — a play on the Hamptons, built with the same elegant, easygoing style.',
   body: [
-    'Harvest-inspired badge artwork, warm neutral tones, and a look that feels more boutique than dispensary — the same care you would expect from any premium lifestyle brand, just built around cannabis.',
+    'Harvest-inspired badge artwork, warm neutral tones, and the same care you would expect from any premium lifestyle brand — just built around cannabis.',
     'Apparel, mood mats, and one-of-one collector glass, made for anyone who wants their cannabis culture to feel just as elevated as everything else around it.'
   ]
 } as const;
