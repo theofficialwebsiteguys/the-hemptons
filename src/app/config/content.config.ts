@@ -74,10 +74,9 @@ export const COLLECTION_EDITORIAL: Record<'glass' | 'apparel' | 'moodMats', { he
 export const ABOUT_CONTENT = {
   eyebrow: 'Est. 2023',
   heading: 'The Hemptons',
-  lede: 'Born from cannabis culture and built around the things we actually want to own, wear, and keep around.',
+  lede: 'A lifestyle cannabis brand — a play on the Hamptons, built with the same elegant, easygoing style.',
   body: [
-    'The idea is simple: take the sun-washed, unhurried feel of a Northeast summer — harvest markets, farm stands, long weekends spent outside — and build a cannabis brand around it instead of around a leaf. Not a dispensary. Not a smoke shop. A lifestyle brand that happens to exist in cannabis culture.',
-    'That shows up in the details. Vintage harvest-badge artwork instead of clip-art leaves. Mood mats and apparel made to actually use, not just display. Collector glass treated like the object it is, not an afterthought.',
-    "The Hemptons is for people who care about how their setup looks as much as what's in it — collectors, hosts, and anyone who'd rather their gear look intentional than accidental."
+    'Harvest-inspired badge artwork, warm neutral tones, and a look that feels more boutique than dispensary — the same care you would expect from any premium lifestyle brand, just built around cannabis.',
+    'Apparel, mood mats, and one-of-one collector glass, made for anyone who wants their cannabis culture to feel just as elevated as everything else around it.'
   ]
 } as const;
