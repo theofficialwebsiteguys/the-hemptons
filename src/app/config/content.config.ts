@@ -66,12 +66,18 @@ export const COLLECTION_EDITORIAL: Record<'glass' | 'apparel' | 'moodMats', { he
   moodMats: { heading: 'Put It Down.', subheading: 'The Hemptons, under everything.' }
 };
 
+// TODO(client): brand copy drafted from the founder's own description of
+// the concept (a Hamptons-inspired lifestyle brand for cannabis culture) —
+// no specific history, people, or claims were invented. Swap in real
+// detail (an actual founding story, names, milestones) whenever it exists;
+// the structure below is built to take it without a redesign.
 export const ABOUT_CONTENT = {
   eyebrow: 'Est. 2023',
   heading: 'The Hemptons',
   lede: 'Born from cannabis culture and built around the things we actually want to own, wear, and keep around.',
   body: [
-    "Replace this page with the real Hemptons story: how it started, what the brand stands for, and who it's made for.",
-    'Keep the structure — an eyebrow, a confident headline, and a couple of well-written paragraphs read far better than a wall of marketing copy.'
+    'The idea is simple: take the sun-washed, unhurried feel of a Northeast summer — harvest markets, farm stands, long weekends spent outside — and build a cannabis brand around it instead of around a leaf. Not a dispensary. Not a smoke shop. A lifestyle brand that happens to exist in cannabis culture.',
+    'That shows up in the details. Vintage harvest-badge artwork instead of clip-art leaves. Mood mats and apparel made to actually use, not just display. Collector glass treated like the object it is, not an afterthought.',
+    "The Hemptons is for people who care about how their setup looks as much as what's in it — collectors, hosts, and anyone who'd rather their gear look intentional than accidental."
   ]
 } as const;
