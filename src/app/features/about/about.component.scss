@@ -48,22 +48,29 @@
 
 .about__body {
   display: grid;
-  gap: v.$space-6;
+  gap: v.$space-7;
   grid-template-columns: 1fr;
-  max-width: none;
+  // Was `max-width: none`, which let this stretch to the full 1400px
+  // container while its columns stayed capped at their own widths —
+  // leaving a large dead gap. Constrain the section itself instead.
+  max-width: 56rem;
+  margin-inline: auto;
 
   @include m.respond-to(lg) {
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 0.85fr 1.15fr;
     gap: v.$space-9;
-    align-items: start;
+    align-items: center;
   }
 }
 
 .about__body-media {
-  aspect-ratio: 4 / 5;
+  // A true circle (not aspect-ratio 4/5 + full radius, which renders as an
+  // oval) — reads as an intentional seal/badge motif.
+  aspect-ratio: 1 / 1;
   border-radius: v.$radius-full;
   overflow: hidden;
-  max-width: 22rem;
+  width: 100%;
+  max-width: 18rem;
   margin-inline: auto;
   background-color: var(--color-surface-alt, #{v.$color-surface-alt});
 
@@ -76,6 +83,10 @@
   display: flex;
   flex-direction: column;
   gap: v.$space-4;
-  max-width: 34rem;
   font-size: v.$font-size-lg;
+  text-align: center;
+
+  @include m.respond-to(lg) {
+    text-align: left;
+  }
 }
